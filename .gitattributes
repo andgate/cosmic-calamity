@@ -1,5 +1,5 @@
 # Set the default behavior, in case people don't have core.autocrlf set.
-* text=auto
+* text eol=lf
 
 # Explicitly declare text files you want to always be normalized and converted
 # to native line endings on checkout.
@@ -10,8 +10,8 @@
 *.cs text
 
 # Declare files that will always have CRLF line endings on checkout.
-*.sln text eol=lf
-.gitattributes text eol=lf
+#*.sln text eol=lf
+#.gitattributes text eol=lf
 
 # Denote all files that are truly binary and should not be modified.
 *.png binary

@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://rooms/Room1.tscn" type="PackedScene" id=1]
 [ext_resource path="res://rooms/Room2.tscn" type="PackedScene" id=2]
@@ -9,6 +9,10 @@
 [ext_resource path="res://rooms/Room9.tscn" type="PackedScene" id=7]
 [ext_resource path="res://rooms/Room5.tscn" type="PackedScene" id=8]
 [ext_resource path="res://rooms/Room6.tscn" type="PackedScene" id=9]
+[ext_resource path="res://rooms/Room10.tscn" type="PackedScene" id=10]
+[ext_resource path="res://rooms/Room11.tscn" type="PackedScene" id=11]
+[ext_resource path="res://rooms/Room12.tscn" type="PackedScene" id=12]
+[ext_resource path="res://rooms/Room13.tscn" type="PackedScene" id=13]
 
 [node name="Overworld" type="YSort"]
 
@@ -26,6 +30,9 @@ position = Vector2( -160, -144 )
 [node name="Room5" parent="." instance=ExtResource( 8 )]
 position = Vector2( 0, -144 )
 
+[node name="Room6" parent="." instance=ExtResource( 9 )]
+position = Vector2( 160, -144 )
+
 [node name="Room7" parent="." instance=ExtResource( 6 )]
 position = Vector2( -160, -288 )
 
@@ -35,5 +42,14 @@ position = Vector2( 0, -288 )
 [node name="Room9" parent="." instance=ExtResource( 7 )]
 position = Vector2( 160, -288 )
 
-[node name="Room6" parent="." instance=ExtResource( 9 )]
-position = Vector2( 160, -144 )
+[node name="Room10" parent="." instance=ExtResource( 10 )]
+position = Vector2( 0, 144 )
+
+[node name="Room11" parent="." instance=ExtResource( 11 )]
+position = Vector2( 160, 144 )
+
+[node name="Room12" parent="." instance=ExtResource( 12 )]
+position = Vector2( 320, 144 )
+
+[node name="Room13" parent="." instance=ExtResource( 13 )]
+position = Vector2( 320, 0 )
