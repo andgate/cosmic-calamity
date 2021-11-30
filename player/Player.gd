@@ -5,10 +5,13 @@ const MAX_SPEED = 5 * TILE_LENGTH
 
 var velocity = Vector2.ZERO
 
+signal room_entered(area)
+
 onready var animationPlayer = $AnimationPlayer
 onready var animationTree = $AnimationTree
 onready var animationState = animationTree.get("parameters/playback")
-onready var tween = $Tween
+onready var tween = $EnterRoomTween
+onready var roomDetector = $RoomDetector
 
 onready var playerStart = Vector2(position)
 
@@ -31,6 +34,8 @@ func _physics_process(delta):
 
 
 func _on_RoomDetector_area_entered(area):
+	emit_signal("room_entered", area)
+	
 	var collision_shape = area.get_node("CollisionShape2D")
 	var room_extents = collision_shape.shape.extents
 	var room_left = collision_shape.global_position.x - room_extents.x
@@ -57,5 +62,17 @@ func _on_RoomDetector_area_entered(area):
 	elif player_bottom > room_bottom:
 		playerStart.y = room_bottom - (player_extents.y + 2)
 	
-	tween.interpolate_property($"." , "position" , Vector2(position),  playerStart, 0.2, Tween.TRANS_LINEAR)
+	if playerStart == position:
+		return
+
+	tween.interpolate_property($"." , "position" , Vector2(position),  playerStart, 0.9, Tween.TRANS_LINEAR)
 	tween.start()
+
+
+func _on_EnterRoomTween_tween_started(object, key):
+	animationTree.active = false
+	roomDetector.monitoring = false
+
+func _on_EnterRoomTween_tween_completed(object, key):
+	animationTree.active = true
+	roomDetector.monitoring = true

@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://camera/RoomCamera.gd" type="Script" id=1]
+
+[node name="RoomCamera" type="Position2D"]
+position = Vector2( -80, -64 )
+script = ExtResource( 1 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+anchor_mode = 0
+current = true
+
+[node name="CameraSnapTween" type="Tween" parent="."]
