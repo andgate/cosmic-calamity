@@ -17,3 +17,4 @@
 *.png binary
 *.jpg binary
 *.xcf binary
+*.wasm binary
