@@ -1,0 +1,40 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://fonts/TLOZ-Links-Awakening-Font.tres" type="DynamicFont" id=1]
+[ext_resource path="res://ui/Dialog.gd" type="Script" id=2]
+[ext_resource path="res://ui/DialogOpen.tres" type="Animation" id=3]
+[ext_resource path="res://ui/DialogClose.tres" type="Animation" id=4]
+
+[node name="Dialog" type="Control"]
+margin_right = 144.0
+margin_bottom = 48.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_right = 144.0
+margin_bottom = 48.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ColorRect"]
+anims/DialogClose = ExtResource( 4 )
+anims/DialogOpen = ExtResource( 3 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+margin_left = 8.0
+margin_top = 8.0
+margin_right = 136.0
+margin_bottom = 40.0
+custom_fonts/normal_font = ExtResource( 1 )
+text = "Hello World!"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="animation_finished" from="ColorRect/AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
+[connection signal="animation_started" from="ColorRect/AnimationPlayer" to="." method="_on_AnimationPlayer_animation_started"]

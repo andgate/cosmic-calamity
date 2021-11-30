@@ -6,7 +6,7 @@ onready var tween = $CameraSnapTween
 var nextPosition = Vector2()
 
 func _ready():
-	set_as_toplevel(true)
+	pass
 
 func _on_Player_room_entered(area):
 	var collision_shape = area.get_node("CollisionShape2D")

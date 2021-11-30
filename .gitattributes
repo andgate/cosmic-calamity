@@ -7,3 +7,4 @@
 *.xcf binary
 *.wasm binary
 *.pck binary
+*.ttf binary
