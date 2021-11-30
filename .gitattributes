@@ -18,3 +18,4 @@
 *.jpg binary
 *.xcf binary
 *.wasm binary
+*.pck binary
