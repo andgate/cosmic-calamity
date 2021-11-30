@@ -6,6 +6,7 @@
 extents = Vector2( 7.5, 5 )
 
 [node name="Boulder" type="StaticBody2D"]
+z_index = 1
 
 [node name="boulder" type="Sprite" parent="."]
 texture = ExtResource( 1 )
