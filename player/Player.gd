@@ -34,26 +34,28 @@ func _on_RoomDetector_area_entered(area):
 	var collision_shape = area.get_node("CollisionShape2D")
 	var room_extents = collision_shape.shape.extents
 	var room_left = collision_shape.global_position.x - room_extents.x
-	var room_top = collision_shape.global_position.y - room_extents.y
+	var room_top = collision_shape.global_position.y - room_extents.x
 	var room_right = collision_shape.global_position.x + room_extents.x
 	var room_bottom = collision_shape.global_position.y + room_extents.y
 	
-	var player_left = global_position.x - 8
-	var player_top = global_position.y - 8
-	var player_right = global_position.x + 8
-	var player_bottom = global_position.y + 8
+	var player_extents = Vector2(8, 8)
+	var player_left = global_position.x - player_extents.x
+	var player_top = global_position.y - player_extents.y
+	var player_right = global_position.x + player_extents.x
+	var player_bottom = global_position.y + player_extents.y
 	
 	playerStart.x = position.x
 	playerStart.y = position.y
 	
 	if player_left < room_left:
-		playerStart.x = room_left + 10
-	if player_right > room_right:
-		playerStart.x = room_right - 10
+		playerStart.x = room_left + player_extents.x + 2
+	elif player_right > room_right:
+		playerStart.x = room_right - (player_extents.x + 2)
+	
 	if player_top < room_top:
-		playerStart.y = room_top + 10
-	if player_bottom > room_bottom:
-		playerStart.y = room_bottom - 10
-		
+		playerStart.y = room_top + (player_extents.y * 2) + 2
+	elif player_bottom > room_bottom:
+		playerStart.y = room_bottom - (player_extents.y + 2)
+	
 	tween.interpolate_property($"." , "position" , Vector2(position),  playerStart, 0.2, Tween.TRANS_LINEAR)
 	tween.start()

@@ -12,83 +12,83 @@
 [ext_resource path="res://player/animations/playerIdleUp.tres" type="Animation" id=10]
 [ext_resource path="res://player/GridSnapper.gd" type="Script" id=11]
 
-[sub_resource type="Animation" id=30]
+[sub_resource type="Animation" id=1]
 resource_name = "ScreenDown"
 
-[sub_resource type="Animation" id=31]
+[sub_resource type="Animation" id=2]
 resource_name = "ScreenLeft"
 
-[sub_resource type="Animation" id=32]
+[sub_resource type="Animation" id=3]
 resource_name = "ScreenRight"
 
-[sub_resource type="Animation" id=33]
+[sub_resource type="Animation" id=4]
 resource_name = "ScreenUp"
 
-[sub_resource type="AnimationNodeAnimation" id=21]
+[sub_resource type="AnimationNodeAnimation" id=5]
 animation = "IdleDown"
 
-[sub_resource type="AnimationNodeAnimation" id=22]
+[sub_resource type="AnimationNodeAnimation" id=6]
 animation = "IdleUp"
 
-[sub_resource type="AnimationNodeAnimation" id=23]
+[sub_resource type="AnimationNodeAnimation" id=7]
 animation = "IdleRight"
 
-[sub_resource type="AnimationNodeAnimation" id=24]
+[sub_resource type="AnimationNodeAnimation" id=8]
 animation = "IdleLeft"
 
-[sub_resource type="AnimationNodeBlendSpace2D" id=25]
-blend_point_0/node = SubResource( 21 )
+[sub_resource type="AnimationNodeBlendSpace2D" id=9]
+blend_point_0/node = SubResource( 5 )
 blend_point_0/pos = Vector2( 0, 1 )
-blend_point_1/node = SubResource( 22 )
+blend_point_1/node = SubResource( 6 )
 blend_point_1/pos = Vector2( 0, -1 )
-blend_point_2/node = SubResource( 23 )
+blend_point_2/node = SubResource( 7 )
 blend_point_2/pos = Vector2( 1, 0 )
-blend_point_3/node = SubResource( 24 )
+blend_point_3/node = SubResource( 8 )
 blend_point_3/pos = Vector2( -1, 0 )
 blend_mode = 1
 
-[sub_resource type="AnimationNodeAnimation" id=15]
+[sub_resource type="AnimationNodeAnimation" id=10]
 animation = "WalkDown"
 
-[sub_resource type="AnimationNodeAnimation" id=16]
+[sub_resource type="AnimationNodeAnimation" id=11]
 animation = "WalkUp"
 
-[sub_resource type="AnimationNodeAnimation" id=17]
+[sub_resource type="AnimationNodeAnimation" id=12]
 animation = "WalkRight"
 
-[sub_resource type="AnimationNodeAnimation" id=18]
+[sub_resource type="AnimationNodeAnimation" id=13]
 animation = "WalkLeft"
 
-[sub_resource type="AnimationNodeBlendSpace2D" id=26]
-blend_point_0/node = SubResource( 15 )
+[sub_resource type="AnimationNodeBlendSpace2D" id=14]
+blend_point_0/node = SubResource( 10 )
 blend_point_0/pos = Vector2( 0, 1 )
-blend_point_1/node = SubResource( 16 )
+blend_point_1/node = SubResource( 11 )
 blend_point_1/pos = Vector2( 0, -1 )
-blend_point_2/node = SubResource( 17 )
+blend_point_2/node = SubResource( 12 )
 blend_point_2/pos = Vector2( 1, 0 )
-blend_point_3/node = SubResource( 18 )
+blend_point_3/node = SubResource( 13 )
 blend_point_3/pos = Vector2( -1, 0 )
 blend_mode = 1
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=19]
+[sub_resource type="AnimationNodeStateMachineTransition" id=15]
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=20]
+[sub_resource type="AnimationNodeStateMachineTransition" id=16]
 
-[sub_resource type="AnimationNodeStateMachine" id=27]
-states/Idle/node = SubResource( 25 )
+[sub_resource type="AnimationNodeStateMachine" id=17]
+states/Idle/node = SubResource( 9 )
 states/Idle/position = Vector2( 232, 118 )
-states/Walk/node = SubResource( 26 )
+states/Walk/node = SubResource( 14 )
 states/Walk/position = Vector2( 474, 118 )
-transitions = [ "Idle", "Walk", SubResource( 19 ), "Walk", "Idle", SubResource( 20 ) ]
+transitions = [ "Idle", "Walk", SubResource( 15 ), "Walk", "Idle", SubResource( 16 ) ]
 start_node = "Idle"
 
-[sub_resource type="AnimationNodeStateMachinePlayback" id=7]
+[sub_resource type="AnimationNodeStateMachinePlayback" id=18]
 
-[sub_resource type="CapsuleShape2D" id=28]
+[sub_resource type="CapsuleShape2D" id=19]
 radius = 2.25266
 height = 2.17848
 
-[sub_resource type="RectangleShape2D" id=29]
+[sub_resource type="RectangleShape2D" id=20]
 extents = Vector2( 8, 8 )
 
 [node name="Player" type="KinematicBody2D"]
@@ -115,10 +115,10 @@ anims/IdleDown = ExtResource( 9 )
 anims/IdleLeft = ExtResource( 8 )
 anims/IdleRight = ExtResource( 7 )
 anims/IdleUp = ExtResource( 10 )
-anims/ScreenDown = SubResource( 30 )
-anims/ScreenLeft = SubResource( 31 )
-anims/ScreenRight = SubResource( 32 )
-anims/ScreenUp = SubResource( 33 )
+anims/ScreenDown = SubResource( 1 )
+anims/ScreenLeft = SubResource( 2 )
+anims/ScreenRight = SubResource( 3 )
+anims/ScreenUp = SubResource( 4 )
 anims/WalkDown = ExtResource( 6 )
 anims/WalkLeft = ExtResource( 3 )
 anims/WalkRight = ExtResource( 5 )
@@ -126,25 +126,24 @@ anims/WalkUp = ExtResource( 4 )
 anims/playerWalkDown = ExtResource( 6 )
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
-tree_root = SubResource( 27 )
+tree_root = SubResource( 17 )
 anim_player = NodePath("../AnimationPlayer")
 active = true
-parameters/playback = SubResource( 7 )
+parameters/playback = SubResource( 18 )
 parameters/Idle/blend_position = Vector2( -0.0324575, 0.0765171 )
 parameters/Walk/blend_position = Vector2( -0.990647, 0.0591717 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( -0.162033, 5.38527 )
 rotation = 1.5708
-shape = SubResource( 28 )
+shape = SubResource( 19 )
 
 [node name="RoomDetector" type="Area2D" parent="."]
 collision_layer = 0
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RoomDetector"]
-visible = false
-shape = SubResource( 29 )
+shape = SubResource( 20 )
 
-[connection signal="area_entered" from="RoomDetector" to="GridSnapper" method="_on_RoomDetector_area_entered"]
 [connection signal="area_entered" from="RoomDetector" to="." method="_on_RoomDetector_area_entered"]
+[connection signal="area_entered" from="RoomDetector" to="GridSnapper" method="_on_RoomDetector_area_entered"]

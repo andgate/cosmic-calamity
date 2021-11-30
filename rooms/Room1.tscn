@@ -9,7 +9,6 @@ extents = Vector2( 80, 72 )
 [node name="Room1" type="YSort"]
 
 [node name="Area2D" type="Area2D" parent="."]
-visible = false
 monitoring = false
 collision_layer = 2
 
