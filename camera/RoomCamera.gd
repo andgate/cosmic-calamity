@@ -13,5 +13,5 @@ func _on_Player_room_entered(area):
 	var size = collision_shape.shape.extents * 2
 	nextPosition = collision_shape.global_position - collision_shape.shape.extents
 	
-	tween.interpolate_property($"." , "position" , Vector2(position),  nextPosition, 0.9, Tween.TRANS_LINEAR)
+	tween.interpolate_property(self, "position" , Vector2(position),  nextPosition, 0.9, Tween.TRANS_LINEAR)
 	tween.start()

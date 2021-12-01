@@ -40,6 +40,5 @@ z_index = 1
 
 [connection signal="dialog_finished" from="CanvasLayer/Dialog" to="World" method="_on_Dialog_dialog_finished"]
 [connection signal="dialog_started" from="CanvasLayer/Dialog" to="World" method="_on_Dialog_dialog_started"]
-[connection signal="visibility_changed" from="CanvasLayer/Dialog" to="CanvasLayer/Dialog" method="_on_Dialog_visibility_changed"]
 [connection signal="timeout" from="CanvasLayer/Dialog/Timer" to="CanvasLayer/Dialog" method="_on_Timer_timeout"]
 [connection signal="room_entered" from="World/Player" to="RoomCamera" method="_on_Player_room_entered"]

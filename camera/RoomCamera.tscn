@@ -10,3 +10,4 @@ anchor_mode = 0
 current = true
 
 [node name="CameraSnapTween" type="Tween" parent="."]
+pause_mode = 2

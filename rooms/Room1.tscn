@@ -1,12 +1,25 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://objects/boulder/Boulder.tscn" type="PackedScene" id=1]
 [ext_resource path="res://tilesets/overworld_tileset.tres" type="TileSet" id=2]
+[ext_resource path="res://npc/butterfly/Butterfly.tscn" type="PackedScene" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 80, 72 )
 
 [node name="Room1" type="YSort"]
+
+[node name="Butterfly" parent="." instance=ExtResource( 3 )]
+position = Vector2( 60, 24 )
+z_index = 1
+
+[node name="Butterfly2" parent="." instance=ExtResource( 3 )]
+position = Vector2( 120.5, 40 )
+z_index = 1
+
+[node name="Butterfly3" parent="." instance=ExtResource( 3 )]
+position = Vector2( 24, 88 )
+z_index = 1
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource( 2 )
