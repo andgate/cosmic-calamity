@@ -81,7 +81,9 @@ height = 2.17848
 [sub_resource type="RectangleShape2D" id=16]
 extents = Vector2( 1, 1 )
 
-[node name="Player" type="KinematicBody2D"]
+[node name="Player" type="KinematicBody2D" groups=[
+"player",
+]]
 script = ExtResource( 2 )
 
 [node name="PlayerSprite" type="Sprite" parent="."]

@@ -1,9 +1,10 @@
-[gd_resource type="TileSet" load_steps=10 format=2]
+[gd_resource type="TileSet" load_steps=11 format=2]
 
 [ext_resource path="res://tilesets/overworld_tileset.png" type="Texture" id=1]
 [ext_resource path="res://tilesets/empty-tile.png" type="Texture" id=2]
 [ext_resource path="res://tilesets/tree-tileset.png" type="Texture" id=3]
 [ext_resource path="res://tilesets/grass-tileset.png" type="Texture" id=4]
+[ext_resource path="res://tilesets/flowers.tres" type="Texture" id=5]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
@@ -485,3 +486,17 @@ points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
 30/shape_one_way_margin = 0.0
 30/shapes = [  ]
 30/z_index = 0
+31/name = "flowers"
+31/texture = ExtResource( 5 )
+31/tex_offset = Vector2( 0, 0 )
+31/modulate = Color( 1, 1, 1, 1 )
+31/region = Rect2( 0, 0, 16, 16 )
+31/tile_mode = 0
+31/occluder_offset = Vector2( 0, 0 )
+31/navigation_offset = Vector2( 0, 0 )
+31/shape_offset = Vector2( 0, 0 )
+31/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+31/shape_one_way = false
+31/shape_one_way_margin = 0.0
+31/shapes = [  ]
+31/z_index = 0

@@ -43,10 +43,12 @@ func _physics_process(delta):
 	velocity = move_and_slide(velocity)
 
 func _on_RoomDetector_area_entered(area):
+	area.monitorable = false   # disable monitoring new area
 	if not current_room_area:
 		current_room_area = area
 		return
-
+	# enable monitoring previous area
+	current_room_area.monitorable = true
 	current_room_area = area
 	get_tree().paused = true
 	emit_signal("room_entered", area)
